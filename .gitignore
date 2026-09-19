@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data
+data/
+*.parquet
+*.csv
+*.jsonl
+*.jsonl.gz
+
+# Logs
+logs/
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+
+# Airflow
+airflow/logs/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
