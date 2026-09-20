@@ -43,8 +43,9 @@ raw/firebase/events/
 
 manifests/firebase/events/
 └── source_date=YYYY-MM-DD.json
+```
 
-File Format
+## File Format
 
 Format:
 
