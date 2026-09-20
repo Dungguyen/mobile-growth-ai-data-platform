@@ -43,7 +43,7 @@ Expected layout:
 raw/firebase/events/source_date=YYYY-MM-DD/
 manifests/firebase/
 quality/
-
+```text
 BigQuery
 
 Datasets:
@@ -63,7 +63,7 @@ Purpose:
 
 Provide the standardized transformation boundary for dbt models.
 
-Runtime Identity
+## Runtime Identity
 
 Service account:
 
@@ -77,27 +77,27 @@ Storage Object Admin on the dedicated raw bucket
 
 No long-lived service-account JSON key is stored in the repository.
 
-Enabled Services
-BigQuery
+##  Enabled Services
+## BigQuery
 Cloud Storage
 Pub/Sub
 IAM
 Cloud Resource Manager
-Source
+## Source
 
 Public source:
 
-firebase-public-project.analytics_153293282.events_*
+firebase-public-project.analytics_153293282.events_*CP4 Status
 
 The source remains read-only.
 
-Security Decisions
+## Security Decisions
 Secrets are excluded from Git.
 No service-account key files are committed.
 Human credentials are used only for local development.
 Runtime workloads will use a dedicated service account.
 Raw bucket uses uniform bucket-level access.
-CP4 Status
+##  CP4 Status
 
 GCP project:
 
