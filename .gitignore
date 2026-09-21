@@ -28,10 +28,11 @@ data/
 # Logs
 logs/
 
-# dbt
+# dbt generated files and local credentials
 dbt/target/
 dbt/logs/
 dbt/dbt_packages/
+dbt/profiles.yml
 
 # Airflow
 airflow/logs/

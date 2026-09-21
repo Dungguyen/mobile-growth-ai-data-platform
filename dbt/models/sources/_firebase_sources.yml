@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: raw
+    description: >
+      Project-owned Raw and Bronze Firebase data loaded from
+      the immutable GCS Parquet landing layer.
+
+    database: mobile-growth-ai-dung-2026
+    schema: raw
+
+    tables:
+      - name: firebase_events
+        description: >
+          Native BigQuery Raw table containing historical Firebase
+          Flood-It events. Nested and repeated source structures
+          are preserved.
+
+        columns:
+          - name: source_date
+            description: Date of the original Firebase daily table.
+            data_tests:
+              - not_null
+
+          - name: event_name
+            description: Original Firebase event name.
+            data_tests:
+              - not_null
+
+          - name: platform
+            description: Source application platform.
