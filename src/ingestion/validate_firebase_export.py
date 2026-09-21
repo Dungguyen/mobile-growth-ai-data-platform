@@ -65,6 +65,11 @@ def main() -> None:
     start_date = parse_date(args.start_date)
     end_date = parse_date(args.end_date)
 
+    if start_date > end_date:
+        raise ValueError(
+            "start-date must be <= end-date"
+        )
+
     storage_client = storage.Client(
         project=PROJECT_ID,
     )
