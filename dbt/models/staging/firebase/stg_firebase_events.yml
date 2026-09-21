@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: stg_firebase_events
+    description: >
+      One-to-one normalized staging view over Raw Firebase events.
+      It converts source dates and timestamps, normalizes Parquet
+      list wrappers, promotes stable context attributes, and retains
+      the complete source payload required for exact deduplication.
+
+    columns:
+      - name: event_date
+        description: Firebase reporting date parsed from YYYYMMDD.
+        data_tests:
+          - not_null
+
+      - name: event_timestamp_raw
+        description: Original event timestamp in microseconds.
+        data_tests:
+          - not_null
+
+      - name: event_timestamp_utc
+        description: UTC timestamp converted from microseconds.
+        data_tests:
+          - not_null
+
+      - name: event_name
+        description: Original Firebase event name.
+        data_tests:
+          - not_null
+
+      - name: user_pseudo_id
+        description: Anonymous Firebase user identifier.
+        data_tests:
+          - not_null
+
+      - name: platform
+        description: Source application platform.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - ANDROID
+                  - IOS
+
+      - name: source_date
+        description: Raw source partition date.
+        data_tests:
+          - not_null
+
+      - name: source_system
+        description: Source-system lineage identifier.
+        data_tests:
+          - not_null
+
+      - name: ingestion_run_id
+        description: Identifier of the Raw ingestion execution.
+        data_tests:
+          - not_null
+
+      - name: event_params_json
+        description: >
+          Serialized normalized event parameters retained for
+          debugging, evolution, replay, and auditing.
+        data_tests:
+          - not_null
