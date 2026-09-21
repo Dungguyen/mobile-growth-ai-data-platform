@@ -129,6 +129,13 @@ def export_source_date(
             "status": "SKIPPED",
         }
 
+    if force and manifest_blob.exists():
+        print(
+            f"[CLEANUP] {source_date}: "
+            "deleting previous manifest"
+        )
+        manifest_blob.delete()
+
     existing_files = list(
         storage_client.list_blobs(
             BUCKET_NAME,
